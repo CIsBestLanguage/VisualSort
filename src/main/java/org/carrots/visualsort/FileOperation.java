@@ -1,3 +1,5 @@
+package org.carrots.visualsort;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -7,7 +9,7 @@ import java.util.Date;
 
 public class FileOperation {
 	
-	//Ğ´ÈëÎÄ¼ş
+	//å†™å…¥æ–‡ä»¶
 	public void writeFile(ArrayList<Integer> rawArray) throws IOException {
 		ArrayList<Integer> array;
 		SnapShot snapShot = new SnapShot();
@@ -15,7 +17,7 @@ public class FileOperation {
 		
 		PrintWriter output = new PrintWriter(new File(df.format(new Date()) + ".txt"));
 		
-		//ËÄÖÖÅÅĞòËã·¨µÄ»ù±¾ĞÅÏ¢ºÍ½»»»´ÎÊıÏÔÊ¾
+		//å››ç§æ’åºç®—æ³•çš„åŸºæœ¬ä¿¡æ¯å’Œäº¤æ¢æ¬¡æ•°æ˜¾ç¤º
 		ArrayList<Sort> sort = new ArrayList<>();
 		sort.add(new BubbleSort());
 		sort.add(new InsertSort());
@@ -27,25 +29,25 @@ public class FileOperation {
 			array = (ArrayList<Integer>) rawArray.clone();
 			sort.get(i).sort(0, array.size() - 1, array, snapShot);
 			output.println(sort.get(i).toString());
-			output.println("½»»»´ÎÊı£º" + snapShot.getTimeOfSwap());
+			output.println("äº¤æ¢æ¬¡æ•°ï¼š" + snapShot.getTimeOfSwap());
 		}
 		
-		output.println("Êı¾İÁ¿£º" +  rawArray.size());
+		output.println("æ•°æ®é‡ï¼š" +  rawArray.size());
 		
-		//Ô­Ê¼Êı¾İ
-		output.println("Ô­Ê¼Êı¾İ£º");
+		//åŸå§‹æ•°æ®
+		output.println("åŸå§‹æ•°æ®ï¼š");
 		for (int i = 0; i < rawArray.size(); i++) {
 			output.print(rawArray.get(i) + " ");
 		}
 		output.println("");
 		
-		//ÒÑÅÅĞòÊı¾İ
-		output.println("ÒÑÅÅĞòÊı¾İ£º");
+		//å·²æ’åºæ•°æ®
+		output.println("å·²æ’åºæ•°æ®ï¼š");
 		for (int i = 0; i < array.size(); i++) {
 			output.print(array.get(i) + " ");
 		}
 		output.println("");
-		output.println("ps:Ñ¡ÔñÅÅĞòÒòÃ¿´Î±éÀúÕû¸öÊı×éÖ»ÊÇÕÒ³ö×î´óÖµ£¬½»»»·¢ÉúÔÚ±éÀúÍê³Éºó£¬ËùÒÔÃ¿´Î±éÀúÖ»½»»»Ò»´Î£¬ËùÒÔ½»»»´ÎÊı½ÏÉÙ");
+		output.println("ps:é€‰æ‹©æ’åºå› æ¯æ¬¡éå†æ•´ä¸ªæ•°ç»„åªæ˜¯æ‰¾å‡ºæœ€å¤§å€¼ï¼Œäº¤æ¢å‘ç”Ÿåœ¨éå†å®Œæˆåï¼Œæ‰€ä»¥æ¯æ¬¡éå†åªäº¤æ¢ä¸€æ¬¡ï¼Œæ‰€ä»¥äº¤æ¢æ¬¡æ•°è¾ƒå°‘");
 		
 		output.close();
 	}

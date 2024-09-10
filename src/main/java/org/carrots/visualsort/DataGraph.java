@@ -1,3 +1,5 @@
+package org.carrots.visualsort;
+
 import java.util.ArrayList;
 
 import javafx.scene.control.ContentDisplay;
@@ -27,7 +29,7 @@ public class DataGraph {
 		
 	}
 	
-	//³õÊ¼»¯ÖùĞÎÍ¼
+	//åˆå§‹åŒ–æŸ±å½¢å›¾
 	public DataGraph(int x, int n) {
 		Rectangle rect = new Rectangle(WIDTH, (n + DELTA) * HEIGHT_EPSILON);
 		rect.setFill(ConstantData.BLUE);
@@ -63,7 +65,7 @@ public class DataGraph {
 		}
 		else {
 			BORDER_SPACING = DEFAULT_BORDER_SPACING;
-			//¼ÆËã¸÷¸öÖùĞÎÍ¼µÄ¿í¶È
+			//è®¡ç®—å„ä¸ªæŸ±å½¢å›¾çš„å®½åº¦
 			double temp = 700 / n;
 			SPACING = temp / 7;
 			WIDTH = temp - SPACING;
@@ -76,7 +78,7 @@ public class DataGraph {
 		}
 		BORDER_SPACING = (790 - n * (WIDTH + SPACING)) / 2;
 		
-		//¼ÆËãÖùĞÎÍ¼µÄ¸ß¶ÈÏµÊıºÍ»ùÊı
+		//è®¡ç®—æŸ±å½¢å›¾çš„é«˜åº¦ç³»æ•°å’ŒåŸºæ•°
 		if (min < 0) {
 			DELTA = (min * -1) + 1;
 			HEIGHT_EPSILON = MAX_HEIGHT / (max - min);
@@ -112,7 +114,7 @@ public class DataGraph {
 		return label.getTranslateX();
 	}
 	
-	//Ä¿Ç°Ã»ÓÃ
+	//ç›®å‰æ²¡ç”¨
 	public void setTranslateX(double x) {
 		label.setTranslateX(x);
 	}

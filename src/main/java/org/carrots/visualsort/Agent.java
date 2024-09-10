@@ -1,22 +1,24 @@
+package org.carrots.visualsort;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import javafx.animation.Animation.Status;
 
 public class Agent {
-	private Sort sort;						//ÅÅĞò½Ó¿Ú
-	private SnapShot snapShot;				//¿ìÕÕ¶ÓÁĞÀà
-	private ArrayList<Integer> rawArray;	//Ô­Ê¼Êı¾İ
-	private ArrayList<Integer> array;		//ÅÅĞò²Ù×÷Êı¾İ
-	private FileOperation FO;				//ÎÄ¼ş²Ù×÷Àà
-	private DrawPane drawPane;				//¶¯»­¿ØÖÆÃæ°åÀà
-	private int duration = 200;				//»ù´¡¶¯»­Ê±¼ä
-	private int randomDataSize = 20;		//»ù´¡Ëæ»úÊı¾İÁ¿·¶Î§
+	private Sort sort;						//æ’åºæ¥å£
+	private SnapShot snapShot;				//å¿«ç…§é˜Ÿåˆ—ç±»
+	private ArrayList<Integer> rawArray;	//åŸå§‹æ•°æ®
+	private ArrayList<Integer> array;		//æ’åºæ“ä½œæ•°æ®
+	private FileOperation FO;				//æ–‡ä»¶æ“ä½œç±»
+	private DrawPane drawPane;				//åŠ¨ç”»æ§åˆ¶é¢æ¿ç±»
+	private int duration = 200;				//åŸºç¡€åŠ¨ç”»æ—¶é—´
+	private int randomDataSize = 20;		//åŸºç¡€éšæœºæ•°æ®é‡èŒƒå›´
 	
 	public Agent() {
 		
 	}
 	
-	//¹¹Ôì
+	//æ„é€ 
 	public Agent(DrawPane drawPane) {
 		FO = new FileOperation();
 		array = new ArrayList<>();
@@ -26,23 +28,23 @@ public class Agent {
 		
 	}
 	
-	//ÉèÖÃÅÅĞò·½Ê½
+	//è®¾ç½®æ’åºæ–¹å¼
 	public void setWayOfSort(String way) {
-		if (way.equals("Ã°ÅİÅÅĞò")) {
+		if (way.equals("å†’æ³¡æ’åº")) {
 			sort = new BubbleSort();
 		}
-		else if (way.equals("²åÈëÅÅĞò")) {
+		else if (way.equals("æ’å…¥æ’åº")) {
 			sort = new InsertSort();
 		}
-		else if (way.equals("Ñ¡ÔñÅÅĞò")) {
+		else if (way.equals("é€‰æ‹©æ’åº")) {
 			sort = new SelectionSort();
 		}
-		else if (way.equals("¿ìËÙÅÅĞò")) {
+		else if (way.equals("å¿«é€Ÿæ’åº")) {
 			sort = new QuickSort();
 		}
 	}
 	
-	//»Ö¸´²Ù×÷
+	//æ¢å¤æ“ä½œ
 	public void recover() {
 		array = (ArrayList<Integer>) rawArray.clone();
 	}

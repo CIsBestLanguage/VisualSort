@@ -1,3 +1,5 @@
+package org.carrots.visualsort;
+
 import javafx.scene.paint.Color;
 
 public final class ConstantData {

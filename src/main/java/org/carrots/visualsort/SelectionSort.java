@@ -1,3 +1,5 @@
+package org.carrots.visualsort;
+
 import java.util.ArrayList;
 
 public class SelectionSort implements Sort {
@@ -9,17 +11,17 @@ public class SelectionSort implements Sort {
 		for (i = 0; i <= right; i++) {
 			max = 0;
 			for (j = 0; j <= right - i; j++) {
-				//½«±éÀúµÄÉÚ±øÎ»ÖÃÌî³äÎªÂÌÉ«£¬½«Ä¿Ç°×î´óÖµÌî³äÎªºìÉ«
+				//å°†éåŽ†çš„å“¨å…µä½ç½®å¡«å……ä¸ºç»¿è‰²ï¼Œå°†ç›®å‰æœ€å¤§å€¼å¡«å……ä¸ºçº¢è‰²
 				snapShot.enqueue(j , ConstantData.GREEN);
 				snapShot.enqueue(max , ConstantData.RED);
 				if (array.get(max) < array.get(j)) {
-					//Èô·¢ÏÖ±È×î´óÖµ´óµÄÊý¾Ý½«Ô­À´µÄ×î´óÖµÖù×ÓÌî³ä»ØÄ¬ÈÏµÄÀ¶É«£¬½«ÐÂµÄ×î´óÖµÌî³äÎªºìÉ«
+					//è‹¥å‘çŽ°æ¯”æœ€å¤§å€¼å¤§çš„æ•°æ®å°†åŽŸæ¥çš„æœ€å¤§å€¼æŸ±å­å¡«å……å›žé»˜è®¤çš„è“è‰²ï¼Œå°†æ–°çš„æœ€å¤§å€¼å¡«å……ä¸ºçº¢è‰²
 					snapShot.enqueue(max , ConstantData.BLUE);
 					max = j;
 					snapShot.enqueue(max , ConstantData.RED);
 				}
 				else if (max != j){
-					//Èç¹ûÎ´·¢Éúµ±Ç°×î´óÖµµÄ±ä»¯Ôò½«ÉÚ±ø±éÀúºóµÄÎ»ÖÃÌî³ä»ØÄ¬ÈÏµÄÀ¶É«
+					//å¦‚æžœæœªå‘ç”Ÿå½“å‰æœ€å¤§å€¼çš„å˜åŒ–åˆ™å°†å“¨å…µéåŽ†åŽçš„ä½ç½®å¡«å……å›žé»˜è®¤çš„è“è‰²
 					snapShot.enqueue(j , ConstantData.BLUE);
 				}
 			}
@@ -28,7 +30,7 @@ public class SelectionSort implements Sort {
 			int temp = array.get(max);
 			array.set(max, array.get(right - i));
 			array.set(right - i, temp);
-			//½«Íê³ÉÅÅÐòµÄ²¿·ÖÌî³äÎªéÙÉ«
+			//å°†å®ŒæˆæŽ’åºçš„éƒ¨åˆ†å¡«å……ä¸ºæ©˜è‰²
 			snapShot.enqueue(max , ConstantData.BLUE);
 			snapShot.enqueue(right - i, ConstantData.ORANGE);
 		}
@@ -37,7 +39,7 @@ public class SelectionSort implements Sort {
 	
 	@Override
 	public String toString() {
-		return "Ñ¡ÔñÅÅÐò: \r\nÆ½¾ùËã·¨¸´ÔÓ¶È:O(n2)";
+		return "é€‰æ‹©æŽ’åº: \r\nå¹³å‡ç®—æ³•å¤æ‚åº¦:O(n2)";
 		
 	}
 

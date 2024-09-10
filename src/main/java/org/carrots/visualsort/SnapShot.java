@@ -1,11 +1,13 @@
+package org.carrots.visualsort;
+
 import java.util.LinkedList;
 
 import javafx.scene.paint.Color;
 
 public class SnapShot {
-	private LinkedList<Information> queue;				//¶ÓÁĞ´æ´¢¿ìÕÕ
-	private int timeOfSwap;								//ÅÅĞò¹ı³ÌÖĞµÄÔªËØ½»»»´ÎÊı
-	private double maxQueueSize;						//Êı¾İÁ¿µÄ¼ÇÂ¼
+	private LinkedList<Information> queue;				//é˜Ÿåˆ—å­˜å‚¨å¿«ç…§
+	private int timeOfSwap;								//æ’åºè¿‡ç¨‹ä¸­çš„å…ƒç´ äº¤æ¢æ¬¡æ•°
+	private double maxQueueSize;						//æ•°æ®é‡çš„è®°å½•
 	
 	public SnapShot() {
 		queue = new LinkedList<>();
@@ -16,21 +18,21 @@ public class SnapShot {
 		queue.add(temp);
 	}
 	
-	//½»»»ĞÅÏ¢½øÈë¶Ó
+	//äº¤æ¢ä¿¡æ¯è¿›å…¥é˜Ÿ
 	public void enqueue(int fx, int dx) {
 		queue.add(new Information(fx, dx));
 		maxQueueSize = queue.size();
-		//½»»»´ÎÊı¼ÓÒ»
+		//äº¤æ¢æ¬¡æ•°åŠ ä¸€
 		timeOfSwap++;
 	}
 	
-	//ÑÕÉ«±ä»¯ĞÅÏ¢Èë¶Ó
+	//é¢œè‰²å˜åŒ–ä¿¡æ¯å…¥é˜Ÿ
 	public void enqueue(int fx, Color color) {
 		queue.add(new Information(fx, color));
 		maxQueueSize = queue.size();
 	}
 	
-	//»ù±¾·½·¨
+	//åŸºæœ¬æ–¹æ³•
 	public Information dequeue() {
 		return queue.removeFirst();
 	}

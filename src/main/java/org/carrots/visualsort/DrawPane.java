@@ -1,5 +1,8 @@
+package org.carrots.visualsort;
+
 import java.util.ArrayList;
 
+import javafx.animation.Animation;
 import javafx.animation.Animation.Status;
 import javafx.animation.FillTransition;
 import javafx.animation.KeyFrame;
@@ -13,19 +16,19 @@ import javafx.scene.text.FontWeight;
 import javafx.util.Duration;
 
 public class DrawPane extends Pane {
-	private ArrayList<DataGraph> rects;
-	private Timeline animation;					//Ö÷ÒªÊ±¼äÏß
-	private int duration = 200;					//Ê±¼äÏßÄ¬ÈÏ²¥·ÅÊ±¼ä
-	private Status status = Status.STOPPED;		//Ê±¼äÏß×´Ì¬
-	private ProgressBar progressBar;			//½ø¶ÈÌõ
-	private Label label;						//½ø¶ÈÌõµÄsorting±êÇ©
+	private final ArrayList<DataGraph> rects;
+	private Timeline animation;					//ä¸»è¦æ—¶é—´çº¿
+	private int duration = 200;					//æ—¶é—´çº¿é»˜è®¤æ’­æ”¾æ—¶é—´
+	private Status status = Status.STOPPED;		//æ—¶é—´çº¿çŠ¶æ€
+	private ProgressBar progressBar;			//è¿›åº¦æ¡
+	private Label label;						//è¿›åº¦æ¡çš„sortingæ ‡ç­¾
 	
-	//¹¹Ôì·½·¨
+	//æ„é€ æ–¹æ³•
 	public DrawPane() {
 		rects = new ArrayList<>();
 	}
 	
-	//³õÊ¼»¯½ø¶ÈÌõµÄÏà¹ØÄÚÈİ
+	//åˆå§‹åŒ–è¿›åº¦æ¡çš„ç›¸å…³å†…å®¹
 	public void initProgressBar() {
 		progressBar = new ProgressBar();
 		label = new Label("Sorting...");
@@ -39,19 +42,19 @@ public class DrawPane extends Pane {
 		super.getChildren().addAll(label, progressBar);
 	}
 	
-	//ÉèÖÃ½ø¶ÈÌõ½ø¶È
+	//è®¾ç½®è¿›åº¦æ¡è¿›åº¦
 	public void setProgressBar(double n) {
 		progressBar.setProgress(n);
 	}
 	
-	//ÉèÖÃÊ±¼äÏßµÄ²¥·ÅËÙÂÊ
+	//è®¾ç½®æ—¶é—´çº¿çš„æ’­æ”¾é€Ÿç‡
 	public void setDuration(SnapShot snapShot, int duration) {
 		this.duration = duration;
 		pause();
 		animation = new Timeline(new KeyFrame(Duration.millis(duration), e -> run(snapShot)));
 		animation.setCycleCount(Timeline.INDEFINITE);
 		
-		//Èç¹û¿ìÕÕÎª¿ÕÔò»¹Î´½øĞĞÅÅĞò£¬½«×´Ì¬ÉèÖÃÎªÍ£Ö¹£¬·ñÔòÉèÎªÔİÍ£
+		//å¦‚æœå¿«ç…§ä¸ºç©ºåˆ™è¿˜æœªè¿›è¡Œæ’åºï¼Œå°†çŠ¶æ€è®¾ç½®ä¸ºåœæ­¢ï¼Œå¦åˆ™è®¾ä¸ºæš‚åœ
 		if (snapShot.isEmpty()) {
 			status = Status.STOPPED;
 		}
@@ -60,13 +63,13 @@ public class DrawPane extends Pane {
 		}
 	}
 	
-	//¿ªÊ¼²¥·ÅÊ±¼äÏßÒÑ¾­½âÎö¿ìÕÕ¶ÓÁĞÉú³É¶¯»­
+	//å¼€å§‹æ’­æ”¾æ—¶é—´çº¿å·²ç»è§£æå¿«ç…§é˜Ÿåˆ—ç”ŸæˆåŠ¨ç”»
 	public void run(SnapShot snapShot) {
-		//°´²½½âÎö¶ÓÁĞ
+		//æŒ‰æ­¥è§£æé˜Ÿåˆ—
 		setProgressBar((snapShot.getMaxQueueSize() - snapShot.size()) / snapShot.getMaxQueueSize());
 		if (!snapShot.isEmpty()) {
 			Information temp = snapShot.dequeue();
-			//½»»»Î»ÖÃ
+			//äº¤æ¢ä½ç½®
 			if (temp.getSx() != -1) {
 				TranslateTransition tt1 = new TranslateTransition(
 						Duration.millis(duration - duration / 8), 
@@ -88,10 +91,10 @@ public class DrawPane extends Pane {
 				rects.set(temp.getFx(), rects.get(temp.getSx()));
 				rects.set(temp.getSx(), t);
 			}
-			//±ä»»ÑÕÉ«
+			//å˜æ¢é¢œè‰²
 			else {
 				FillTransition ft = new FillTransition(
-						Duration.millis(duration - duration / 9), 
+						Duration.millis(duration - duration / 9),
 						rects.get(temp.getFx()).getRect(), 
 						rects.get(temp.getFx()).getColor(),
 						temp.getColor()
@@ -102,7 +105,7 @@ public class DrawPane extends Pane {
 		}
 	}
 	
-	//Î´ÅÅĞòµÄÔ­Ê¼Êı¾İµÄ³õÊ¼»¯Éú³É
+	//æœªæ’åºçš„åŸå§‹æ•°æ®çš„åˆå§‹åŒ–ç”Ÿæˆ
 	public void draw(ArrayList<Integer> array) {
 		DataGraph.graphAdapter(array);
 		rects.clear();
@@ -115,11 +118,11 @@ public class DrawPane extends Pane {
 		initProgressBar();
 	}
 	
-	//Ê±¼äÏßµÄÏàÓ¦²Ù×÷µÄ·â×°
+	//æ—¶é—´çº¿çš„ç›¸åº”æ“ä½œçš„å°è£…
 	public void play(SnapShot snapShot, int duration) {
 		if (animation == null) {
 			animation = new Timeline(new KeyFrame(Duration.millis(duration), e -> run(snapShot)));
-			animation.setCycleCount(Timeline.INDEFINITE);
+			animation.setCycleCount(Animation.INDEFINITE);
 		}
 		status = Status.RUNNING;
 		animation.play();

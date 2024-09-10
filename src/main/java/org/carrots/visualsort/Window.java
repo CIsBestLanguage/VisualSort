@@ -1,3 +1,4 @@
+package org.carrots.visualsort;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -19,21 +20,21 @@ public class Window extends Application{
 		Agent agent = new Agent(drawPane);
 		ControlPane controlPane = new ControlPane(agent);
 		
-		//·Ö¸îÏß²ÎÊı
+		//åˆ†å‰²çº¿å‚æ•°
 		Line line = new Line(790, 0, 790, 610);
 		line.setFill(Color.BLACK);
 		
 		
-		//¿ØÖÆÃæ°å²ÎÊı
+		//æ§åˆ¶é¢æ¿å‚æ•°
 		controlPane.setLayoutX(800);
 		controlPane.setLayoutY(0);
 		
-		//»­°åºÍ¿ØÖÆÃæ°åºÍ·Ö¸ôÏß¼ÓÈë×îµ×²ãÃæ°å
+		//ç”»æ¿å’Œæ§åˆ¶é¢æ¿å’Œåˆ†éš”çº¿åŠ å…¥æœ€åº•å±‚é¢æ¿
 		pane.getChildren().addAll(controlPane, drawPane, line);
 		
 		
 		stage.setScene(scene);
-		stage.setTitle("ÅÅĞòËã·¨²Ù×÷ÑİÊ¾");
+		stage.setTitle("æ’åºç®—æ³•æ“ä½œæ¼”ç¤º");
 		stage.setResizable(false);
 		stage.show();
 	}

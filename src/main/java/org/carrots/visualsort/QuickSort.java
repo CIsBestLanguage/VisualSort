@@ -1,3 +1,5 @@
+package org.carrots.visualsort;
+
 import java.util.ArrayList;
 
 public class QuickSort implements Sort {
@@ -50,7 +52,7 @@ public class QuickSort implements Sort {
 	
 	@Override
 	public String toString() {
-		return "¿ìËÙÅÅĞò: \r\nÆ½¾ùËã·¨¸´ÔÓ¶È:O(nlogn)";
+		return "å¿«é€Ÿæ’åº: \r\nå¹³å‡ç®—æ³•å¤æ‚åº¦:O(nlogn)";
 		
 	}
 }

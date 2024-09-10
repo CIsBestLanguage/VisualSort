@@ -1,6 +1,8 @@
+package org.carrots.visualsort;
+
 import javafx.scene.paint.Color;
 
-//пео╒юЮ╢Ф╢╒еепР╧ЩЁлжп╣дн╩жц╠Д╩╞рт╪╟р╙отй╬╣дяуи╚╠Д╩╞
+//Д©║Ф│╞Г╠╩Е╜≤Е┌╗Ф▌▓Е╨▐Х©┤Г╗▀Д╦╜Г └Д╫█Г╫╝Е▐≤Е▄√Д╩╔Е▐┼Х╕│Ф≤╬Г╓╨Г └И╒°Х┴╡Е▐≤Е▄√
 public class Information {
 	private Color color;
 	private int fx;

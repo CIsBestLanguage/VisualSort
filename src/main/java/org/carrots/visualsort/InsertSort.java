@@ -1,3 +1,5 @@
+package org.carrots.visualsort;
+
 import java.util.ArrayList;
 
 public class InsertSort implements Sort {
@@ -8,7 +10,7 @@ public class InsertSort implements Sort {
 		int j;
 		for (int i = 0; i <= right; i++) {
             for (j = i; j > 0 ; j--) {
-            	//½«´ı½»»»Î»ÖÃµÄÖù×ÓÌî³äÎªºìÉ«£¬ÓëÆä±È½ÏµÄÖù×ÓÌî³äÎªÂÌÉ«
+            	//å°†å¾…äº¤æ¢ä½ç½®çš„æŸ±å­å¡«å……ä¸ºçº¢è‰²ï¼Œä¸å…¶æ¯”è¾ƒçš„æŸ±å­å¡«å……ä¸ºç»¿è‰²
             	snapShot.enqueue(j, ConstantData.RED);
             	snapShot.enqueue(j - 1, ConstantData.GREEN);
             	
@@ -17,16 +19,16 @@ public class InsertSort implements Sort {
                 	temp = array.get(j - 1);
     				array.set(j - 1, array.get(j));
     				array.set(j, temp);
-    				//½»»»Î»ÖÃºó½«ÂÌÉ«Öù×ÓÌî³äÎªéÙÉ«
+    				//äº¤æ¢ä½ç½®åå°†ç»¿è‰²æŸ±å­å¡«å……ä¸ºæ©˜è‰²
     				snapShot.enqueue(j, ConstantData.ORANGE);
             	}
             	else {
-            		//ÈôÎ´½»»»Î»ÖÃÔòÒÑ¾­ÓĞĞò£¬½«Ô­À´ÂÌÉ«µÄ´ı±È½ÏÖù×ÓÌî³äÎªÍê³ÉÅÅĞòµÄéÙÉ«
+            		//è‹¥æœªäº¤æ¢ä½ç½®åˆ™å·²ç»æœ‰åºï¼Œå°†åŸæ¥ç»¿è‰²çš„å¾…æ¯”è¾ƒæŸ±å­å¡«å……ä¸ºå®Œæˆæ’åºçš„æ©˜è‰²
             		snapShot.enqueue(j - 1, ConstantData.ORANGE);
             		break;
             	}
             }
-            //Èô½»»»µÄÎ»ÖÃÔò½«ºìÉ«Öù×ÓÌî³äÎªéÙÉ«£¬ÈôÎ´½»»»Î»ÖÃÔò½«ÂÌÉ«Öù×ÓÌî³äÎªéÙÉ«
+            //è‹¥äº¤æ¢çš„ä½ç½®åˆ™å°†çº¢è‰²æŸ±å­å¡«å……ä¸ºæ©˜è‰²ï¼Œè‹¥æœªäº¤æ¢ä½ç½®åˆ™å°†ç»¿è‰²æŸ±å­å¡«å……ä¸ºæ©˜è‰²
             snapShot.enqueue(j, ConstantData.ORANGE);
         }
 		
@@ -34,7 +36,7 @@ public class InsertSort implements Sort {
 	
 	@Override
 	public String toString() {
-		return "²åÈëÅÅĞò: \r\nÆ½¾ùËã·¨¸´ÔÓ¶È:O(n2)";
+		return "æ’å…¥æ’åº: \r\nå¹³å‡ç®—æ³•å¤æ‚åº¦:O(n2)";
 		
 	}
 

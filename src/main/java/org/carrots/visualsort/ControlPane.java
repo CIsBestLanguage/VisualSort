@@ -1,3 +1,5 @@
+package org.carrots.visualsort;
+
 import java.io.IOException;
 
 import javafx.collections.FXCollections;
@@ -33,20 +35,20 @@ public class ControlPane extends Pane {
 	
 	private void initMainPane() {
 		this.mainPane = new Pane();
-		// Ñ¡Ôñ¿òÄÚÈİ
-		Label label = new Label("ÅÅĞòËã·¨");
+		// é€‰æ‹©æ¡†å†…å®¹
+		Label label = new Label("æ’åºç®—æ³•");
 		label.setFont(new Font(15));
 		ComboBox<String> comboBox = new ComboBox<String>(
-		FXCollections.observableArrayList("Ã°ÅİÅÅĞò", "²åÈëÅÅĞò", "Ñ¡ÔñÅÅĞò", "¿ìËÙÅÅĞò"));
-		comboBox.setValue("Ã°ÅİÅÅĞò");
+		FXCollections.observableArrayList("å†’æ³¡æ’åº", "æ’å…¥æ’åº", "é€‰æ‹©æ’åº", "å¿«é€Ÿæ’åº"));
+		comboBox.setValue("å†’æ³¡æ’åº");
 		HBox hBox = new HBox();
 		hBox.setLayoutX(10);
 		hBox.setLayoutY(30);
 		hBox.setSpacing(20);
 		hBox.getChildren().addAll(label, comboBox);
 
-		// ¿ªÊ¼°´Å¥
-		Button btStart = new Button("¿ªÊ¼");
+		// å¼€å§‹æŒ‰é’®
+		Button btStart = new Button("å¼€å§‹");
 		btStart.setPrefHeight(40);
 		btStart.setPrefWidth(80);
 		btStart.setLayoutX(15);
@@ -56,8 +58,8 @@ public class ControlPane extends Pane {
 			agent.play();
 		});
 
-		// ÔİÍ£°´Å¥
-		Button btPause = new Button("ÔİÍ£");
+		// æš‚åœæŒ‰é’®
+		Button btPause = new Button("æš‚åœ");
 		btPause.setPrefHeight(40);
 		btPause.setPrefWidth(80);
 		btPause.setLayoutX(105);
@@ -66,8 +68,8 @@ public class ControlPane extends Pane {
 		agent.pause();
 				});
 
-		// ÊäÈëÊı¾İ°´Å¥
-		Button btWriteData = new Button("ÊäÈëÊı¾İ");
+		// è¾“å…¥æ•°æ®æŒ‰é’®
+		Button btWriteData = new Button("è¾“å…¥æ•°æ®");
 		btWriteData.setPrefHeight(40);
 		btWriteData.setPrefWidth(80);
 		btWriteData.setLayoutX(15);
@@ -77,8 +79,8 @@ public class ControlPane extends Pane {
 		inputPane.setVisible(true);
 		});
 
-		// Ëæ»úÊı¾İ°´Å¥
-		Button btRandomData = new Button("Ëæ»úÊı¾İ");
+		// éšæœºæ•°æ®æŒ‰é’®
+		Button btRandomData = new Button("éšæœºæ•°æ®");
 		btRandomData.setPrefHeight(40);
 		btRandomData.setPrefWidth(80);
 		btRandomData.setLayoutX(105);
@@ -89,8 +91,8 @@ public class ControlPane extends Pane {
 			agent.draw();
 		});
 
-		// »Ö¸´°´Å¥
-		Button btRecover = new Button("»Ö¸´");
+		// æ¢å¤æŒ‰é’®
+		Button btRecover = new Button("æ¢å¤");
 		btRecover.setPrefHeight(40);
 		btRecover.setPrefWidth(80);
 		btRecover.setLayoutX(15);
@@ -101,8 +103,8 @@ public class ControlPane extends Pane {
 			agent.draw();
 		});
 
-		// ±£´æÊı¾İ°´Å¥
-		Button btSave = new Button("±£´æÊı¾İ");
+		// ä¿å­˜æ•°æ®æŒ‰é’®
+		Button btSave = new Button("ä¿å­˜æ•°æ®");
 		btSave.setPrefHeight(40);
 		btSave.setPrefWidth(80);
 		btSave.setLayoutX(105);
@@ -115,7 +117,7 @@ public class ControlPane extends Pane {
 			}
 		});
 		
-		Button btSetting = new Button("ÉèÖÃ");
+		Button btSetting = new Button("è®¾ç½®");
 		btSetting.setPrefHeight(50);
 		btSetting.setPrefWidth(100);
 		btSetting.setLayoutX(50);
@@ -125,7 +127,7 @@ public class ControlPane extends Pane {
 			settingPane.setVisible(true);
 		});
 				
-		//½«°´Å¥¼ÓÈëÓÒ²àµÄ¿ØÖÆÃæ°å
+		//å°†æŒ‰é’®åŠ å…¥å³ä¾§çš„æ§åˆ¶é¢æ¿
 		mainPane.getChildren().addAll(btStart, 
 				btPause, 
 				btWriteData, 
@@ -140,7 +142,7 @@ public class ControlPane extends Pane {
 	private void initInputPane() {
 		this.inputPane = new Pane();
 		
-		Label tip = new Label("ÇëÊäÈëÕûÊıÒÔ¿Õ¸ñ·Ö¸ô");
+		Label tip = new Label("è¯·è¾“å…¥æ•´æ•°ä»¥ç©ºæ ¼åˆ†éš”");
 		tip.setLayoutX(20);
 		tip.setLayoutY(20);
 		
@@ -153,8 +155,8 @@ public class ControlPane extends Pane {
 		textData.setLayoutY(50);
 		
 		
-		//ÊäÈëÊı¾İÒ³ÃæµÄÈ·ÈÏ°´Å¥
-		Button btSure = new Button("È·¶¨");
+		//è¾“å…¥æ•°æ®é¡µé¢çš„ç¡®è®¤æŒ‰é’®
+		Button btSure = new Button("ç¡®å®š");
 		btSure.setPrefHeight(40);
 		btSure.setPrefWidth(80);
 		btSure.setLayoutX(15);
@@ -168,7 +170,7 @@ public class ControlPane extends Pane {
 			agent.draw();
 		});
 		
-		Button btBack = new Button("·µ»Ø");
+		Button btBack = new Button("è¿”å›");
 		btBack.setPrefHeight(40);
 		btBack.setPrefWidth(80);
 		btBack.setLayoutX(105);
@@ -185,7 +187,7 @@ public class ControlPane extends Pane {
 	private void initSettingPane() {
 		this.settingPane = new Pane();
 		
-		Label label1 = new Label("¶¯»­ËÙÂÊ");
+		Label label1 = new Label("åŠ¨ç”»é€Ÿç‡");
 		label1.setFont(new Font(15));
 		ComboBox<String> comboBox1 = new ComboBox<String>(
 				FXCollections.observableArrayList("1", "2", "4" , "10"));
@@ -199,7 +201,7 @@ public class ControlPane extends Pane {
 		gridPane.add(label1, 0, 0);
 		gridPane.add(comboBox1, 1, 0);
 		
-		Label label2 = new Label("Ëæ»úÊı¾İÊıÁ¿·¶Î§");
+		Label label2 = new Label("éšæœºæ•°æ®æ•°é‡èŒƒå›´");
 		label2.setFont(new Font(15));
 		ComboBox<String> comboBox2 = new ComboBox<String>(
 				FXCollections.observableArrayList("10", "20", "30", "50", "100", "150","200", "250", "300"));
@@ -208,7 +210,7 @@ public class ControlPane extends Pane {
 		gridPane.add(label2, 0, 1);
 		gridPane.add(comboBox2, 1, 1);
 		
-		Button btSure = new Button("È·¶¨");
+		Button btSure = new Button("ç¡®å®š");
 		btSure.setPrefHeight(40);
 		btSure.setPrefWidth(80);
 		btSure.setLayoutX(15);
@@ -233,7 +235,7 @@ public class ControlPane extends Pane {
 			mainPane.setVisible(true);
 		});
 		
-		Button btBack = new Button("·µ»Ø");
+		Button btBack = new Button("è¿”å›");
 		btBack.setPrefHeight(40);
 		btBack.setPrefWidth(80);
 		btBack.setLayoutX(105);

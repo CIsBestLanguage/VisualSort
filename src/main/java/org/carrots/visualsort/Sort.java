@@ -1,6 +1,8 @@
+package org.carrots.visualsort;
+
 import java.util.ArrayList;
 
 public interface Sort {
-	//ÅÅĞòËã·¨½Ó¿Ú
+	//æ’åºç®—æ³•æ¥å£
 	public abstract void sort(int left, int right, ArrayList<Integer> array, SnapShot snapShot);
 }

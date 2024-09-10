@@ -1,3 +1,5 @@
+package org.carrots.visualsort;
+
 import java.util.ArrayList;
 
 public class BubbleSort implements Sort {
@@ -9,19 +11,19 @@ public class BubbleSort implements Sort {
 		for (int i = 0; i <= right; i++) {
 			snapShot.enqueue(0, ConstantData.GREEN);
 			for (int j = 1; j <= right - i; j++) {
-				//½øÐÐ±È½ÏµÄÁ½¸öÊý¾ÝÌî³äÎªÂÌÉ«
+				//è¿›è¡Œæ¯”è¾ƒçš„ä¸¤ä¸ªæ•°æ®å¡«å……ä¸ºç»¿è‰²
 				snapShot.enqueue(j, ConstantData.GREEN);
 				if (array.get(j) < array.get(j - 1)) {
-					//½øÐÐÎ»ÖÃµÄ±ä»»
+					//è¿›è¡Œä½ç½®çš„å˜æ¢
 					snapShot.enqueue(j , j - 1);
 					temp = array.get(j - 1);
 					array.set(j - 1, array.get(j));
 					array.set(j, temp);
 				}
-				//½«Ç°Ò»¸öÊý¾Ý»Ö¸´ÎªÕý³£ÑÕÉ«
+				//å°†å‰ä¸€ä¸ªæ•°æ®æ¢å¤ä¸ºæ­£å¸¸é¢œè‰²
 				snapShot.enqueue(j - 1, ConstantData.BLUE);
 			}
-			//Íê³ÉÅÅÐòµÄ²¿·ÖÌî³äÎªéÙÉ«
+			//å®ŒæˆæŽ’åºçš„éƒ¨åˆ†å¡«å……ä¸ºæ©˜è‰²
 			snapShot.enqueue(right - i, ConstantData.ORANGE);
 		}
 		
@@ -29,7 +31,7 @@ public class BubbleSort implements Sort {
 	
 	@Override
 	public String toString() {
-		return "Ã°ÅÝÅÅÐò: \r\nÆ½¾ùËã·¨¸´ÔÓ¶È:O(n2)";
+		return "å†’æ³¡æŽ’åº: \r\nå¹³å‡ç®—æ³•å¤æ‚åº¦:O(n2)";
 		
 	}
 
